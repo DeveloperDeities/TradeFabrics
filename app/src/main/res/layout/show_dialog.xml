@@ -5,38 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="393dp"
+        android:layout_height="426dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631"></LinearLayout>
+
     <ImageView
         android:id="@+id/merchant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="121dp"
+        android:layout_height="212dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:srcCompat="@drawable/merchant_signup_page"
+        tools:srcCompat="@drawable/merchant_signup_page" />
 
     <ImageView
         android:id="@+id/normal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="123dp"
+        android:layout_height="205dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:srcCompat="@drawable/buyer_signup_page" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
-        android:text="merchant"
-        android:textSize="20sp"
+        android:text="SELLER"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
@@ -46,8 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:text="normal"
-        android:textSize="20sp"
+        android:text="BUYER"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/normal"
         app:layout_constraintHorizontal_bias="1.0"
@@ -55,13 +70,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="408dp"
-        android:layout_height="435dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
