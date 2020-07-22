@@ -30,5 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private void goTologinPage() {
         Intent intend=new Intent(this,LoginPage.class);
         startActivity(intend);
+        finish();
     }
 }
