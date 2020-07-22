@@ -51,6 +51,13 @@ public class LoginPage extends AppCompatActivity{
                 //programme for FireBase
             }
         });
+        mSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowingDialogForChoice showdialog=new ShowingDialogForChoice();
+                showdialog.show(getSupportFragmentManager(),"");
 
+            }
+        });
     }
 }
