@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 goTologinPage();
             }
-        },3000);
+        },1500);
     }
 
     private void goTologinPage() {
