@@ -9,14 +9,35 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="215dp"
-        android:layout_height="199dp"
+        android:layout_width="271dp"
+        android:layout_height="272dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588"
         app:srcCompat="@drawable/startingapplogo"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/welcomebyetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="182dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="92dp"
+        android:text="WELCOME"
+        android:textAllCaps="true"
+        android:textColor="#6200EA"
+        android:textSize="70sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
