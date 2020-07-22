@@ -28,6 +28,29 @@ public class LoginPage extends AppCompatActivity{
         mProgressBar=findViewById(R.id.progressBar);
 
         //handelingClicks
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username=mUsername.getText().toString().trim();
+                String password=mPassword.getText().toString().trim();
+                //check whether the usename and password are empty or not?
+                if(TextUtils.isEmpty(username)) {
+                    mUsername.setError("username is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(password)) {
+                    mPassword.setError("password is required");
+                    return;
+                }
+                if(password.length()<6)
+                {
+                    mPassword.setError("the password must be more than 6 charaters");
+                    return;
+                }
+                mProgressBar.setVisibility(View.VISIBLE);
+                //programme for FireBase
+            }
+        });
 
     }
 }
