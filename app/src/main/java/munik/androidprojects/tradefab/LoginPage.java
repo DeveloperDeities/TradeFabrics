@@ -1,5 +1,6 @@
 package munik.androidprojects.tradefab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -59,5 +60,9 @@ public class LoginPage extends AppCompatActivity{
 
             }
         });
+    }
+    public void abc(){
+        Intent intent=new Intent(this,SignupForMerchant.class);
+        startActivity(intent);
     }
 }

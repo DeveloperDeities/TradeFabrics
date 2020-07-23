@@ -3,6 +3,7 @@ package munik.androidprojects.tradefab;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,9 @@ public class ShowingDialogForChoice extends DialogFragment {
         merchant_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                LoginPage callingActivity = (
+                        LoginPage) getActivity();
+                callingActivity.abc();
             }
         });
         normal_image.setOnClickListener(new View.OnClickListener() {
