@@ -60,6 +60,12 @@ public class LoginPage extends AppCompatActivity{
 
             }
         });
+        mForgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                take_to_forgot_password();
+            }
+        });
     }
     public void take_to_Merchant_Login(){
         Intent intent=new Intent(this,SignupForMerchant.class);
@@ -67,6 +73,10 @@ public class LoginPage extends AppCompatActivity{
     }
     public void take_to_buyer_Login(){
         Intent intent=new Intent(this,SignupForByer.class);
+        startActivity(intent);
+    }
+    public void take_to_forgot_password(){
+        Intent intent=new Intent(this,ForgotPassword.class);
         startActivity(intent);
     }
 }
