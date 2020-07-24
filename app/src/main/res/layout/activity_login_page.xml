@@ -16,6 +16,7 @@
         android:layout_marginBottom="420dp"
         android:background="@android:color/white"
         android:ems="10"
+        android:hint="EMAIL"
         android:gravity="start|top"
         android:inputType="textWebEmailAddress"
         android:textAlignment="textStart"
@@ -24,7 +25,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
+        app:layout_constraintTop_toBottomOf="@+id/appName"
+        tools:ignore="MissingConstraints"/>
 
     <EditText
         android:id="@+id/password"
@@ -35,6 +37,7 @@
         android:layout_marginBottom="420dp"
         android:background="@android:color/white"
         android:ems="10"
+        android:hint="PASSWORD "
         android:gravity="start|top"
         android:inputType="textPassword"
         android:textSize="30sp"
@@ -43,7 +46,8 @@
         app:layout_constraintHorizontal_bias="0.31"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appName"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintVertical_bias="0.76"
+        tools:ignore="MissingConstraints"/>
 
     <Button
         android:id="@+id/signin"
@@ -58,7 +62,8 @@
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.238"
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/appName"
@@ -77,7 +82,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.44"
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/signup"
@@ -91,7 +97,8 @@
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signin"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.31"
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/forgotpassword"
@@ -104,7 +111,8 @@
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.25"
+        tools:ignore="MissingConstraints"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -116,7 +124,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotpassword"
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/usernametextview"
@@ -134,7 +143,8 @@
         app:layout_constraintEnd_toStartOf="@+id/username"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
+        app:layout_constraintTop_toBottomOf="@+id/appName"
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/passwordtextview"
@@ -152,6 +162,7 @@
         app:layout_constraintEnd_toStartOf="@+id/password"
         app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernametextview" />
+        app:layout_constraintTop_toBottomOf="@+id/usernametextview"
+        tools:ignore="MissingConstraints"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
