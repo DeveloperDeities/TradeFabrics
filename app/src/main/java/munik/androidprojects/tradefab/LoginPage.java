@@ -61,8 +61,12 @@ public class LoginPage extends AppCompatActivity{
             }
         });
     }
-    public void abc(){
+    public void take_to_Merchant_Login(){
         Intent intent=new Intent(this,SignupForMerchant.class);
+        startActivity(intent);
+    }
+    public void take_to_buyer_Login(){
+        Intent intent=new Intent(this,SignupForByer.class);
         startActivity(intent);
     }
 }

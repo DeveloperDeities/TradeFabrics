@@ -10,19 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-public class SignupForMerchant extends AppCompatActivity {
+public class SignupForByer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_for_merchant);
+        setContentView(R.layout.activity_signup_for_byer);
         final EditText mName=(EditText)findViewById(R.id.name);
         final EditText mEmail=(EditText)findViewById(R.id.email);
         final EditText mPassword=(EditText)findViewById(R.id.passowrd);
         final EditText mConfirm_password=(EditText)findViewById(R.id.confirmpassword);
         final EditText mPhone=(EditText)findViewById(R.id.phone);
-        final EditText mBank_account=(EditText)findViewById(R.id.bankaccount);
-        final EditText mIFCS=(EditText)findViewById(R.id.ifcscode);
         final Button mButton=(Button)findViewById(R.id.register);
         final ProgressBar mProgressBar2=(ProgressBar)findViewById(R.id.progressBar2);
         mProgressBar2.setVisibility(View.INVISIBLE);
@@ -38,10 +36,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mConfirm_password.setText("ConfirmPassword");
                 if(mPhone.getText().toString().equals(""))
                     mPhone.setText("Phone");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("BankAccount");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
+
             }
         });
         mEmail.setOnClickListener(new View.OnClickListener() {
@@ -56,10 +51,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mConfirm_password.setText("ConfirmPassword");
                 if(mPhone.getText().toString().equals(""))
                     mPhone.setText("Phone");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("BankAccount");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
+
 
             }
         });
@@ -75,10 +67,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mConfirm_password.setText("ConfirmPassword");
                 if(mPhone.getText().toString().equals(""))
                     mPhone.setText("Phone");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("BankAccount");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
+
             }
         });
         mConfirm_password.setOnClickListener(new View.OnClickListener() {
@@ -93,10 +82,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mPassword.setText("Password");
                 if(mPhone.getText().toString().equals(""))
                     mPhone.setText("Phone");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("BankAccount");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
+
             }
         });
         mPhone.setOnClickListener(new View.OnClickListener() {
@@ -111,46 +97,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mPassword.setText("Password");
                 if(mConfirm_password.getText().toString().equals(""))
                     mConfirm_password.setText("Confirm-Password");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("BankAccount");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
-            }
-        });
-        mBank_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mBank_account.setText("");
-                if(mName.getText().toString().equals(""))
-                    mName.setText("Name");
-                if(mEmail.getText().toString().equals(""))
-                    mEmail.setText("E-mail");
-                if(mPassword.getText().toString().equals(""))
-                    mPassword.setText("Password");
-                if(mConfirm_password.getText().toString().equals(""))
-                    mConfirm_password.setText("Confirm-Password");
-                if(mPhone.getText().toString().equals(""))
-                    mPhone.setText("Phone");
-                if(mIFCS.getText().toString().equals(""))
-                    mIFCS.setText("IFCS Code");
-            }
-        });
-        mIFCS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mIFCS.setText("");
-                if(mName.getText().toString().equals(""))
-                    mName.setText("Name");
-                if(mEmail.getText().toString().equals(""))
-                    mEmail.setText("E-mail");
-                if(mPassword.getText().toString().equals(""))
-                    mPassword.setText("Password");
-                if(mConfirm_password.getText().toString().equals(""))
-                    mConfirm_password.setText("Confirm-Password");
-                if(mPhone.getText().toString().equals(""))
-                    mPhone.setText("Phone");
-                if(mBank_account.getText().toString().equals(""))
-                    mBank_account.setText("Bank Account");
+
             }
         });
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -161,8 +108,7 @@ public class SignupForMerchant extends AppCompatActivity {
                 String password=mPassword.getText().toString().trim();
                 String confirm_password=mConfirm_password.getText().toString().trim();
                 String phone=mPhone.getText().toString().trim();
-                String bankAccount=mBank_account.getText().toString().trim();
-                String ifcs_code=mIFCS.getText().toString().trim();
+
                 //check whether the usename and password are empty or not?
                 if((TextUtils.isEmpty(name))||(TextUtils.equals(name,"Name"))) {
                     mName.setError("name is required");
@@ -184,14 +130,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     mPhone.setError("phone is required");
                     return;
                 }
-                if((TextUtils.isEmpty(bankAccount))||(TextUtils.equals(bankAccount,"E-mail"))) {
-                    mBank_account.setError("bankAccount is required");
-                    return;
-                }
-                if((TextUtils.isEmpty(ifcs_code))||(TextUtils.equals(ifcs_code,"E-mail"))) {
-                    mIFCS.setError("ifcs code is required");
-                    return;
-                }
+
                 if(password.length()<6)
                 {
                     mPassword.setError("the password must be more than 6 charaters");

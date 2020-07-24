@@ -28,13 +28,15 @@ public class ShowingDialogForChoice extends DialogFragment {
             public void onClick(View v) {
                 LoginPage callingActivity = (
                         LoginPage) getActivity();
-                callingActivity.abc();
+                callingActivity.take_to_Merchant_Login();
             }
         });
         normal_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                LoginPage callingActivity = (
+                        LoginPage) getActivity();
+                callingActivity.take_to_buyer_Login();
             }
         });
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
