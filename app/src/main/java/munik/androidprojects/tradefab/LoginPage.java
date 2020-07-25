@@ -8,15 +8,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPage extends AppCompatActivity{
     public EditText mUsername,mPassword;
     public Button mButton;
     public TextView mSignup,mForgot_password;
     public ProgressBar mProgressBar;
-
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +34,7 @@ public class LoginPage extends AppCompatActivity{
         mSignup=findViewById(R.id.signup);
         mForgot_password=findViewById(R.id.forgotpassword);
         mProgressBar=findViewById(R.id.progressBar);
-
+        fAuth=FirebaseAuth.getInstance();
         //handelingClicks
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +57,19 @@ public class LoginPage extends AppCompatActivity{
                 }
                 mProgressBar.setVisibility(View.VISIBLE);
                 //programme for FireBase
+                fAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(LoginPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),JustForTesting.class));
+                        }else{
+                            Toast.makeText(LoginPage.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            mProgressBar.setVisibility(View.GONE);
+                        }
+                    }
+                });
+
             }
         });
         mSignup.setOnClickListener(new View.OnClickListener() {

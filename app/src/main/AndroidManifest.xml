@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="munik.androidprojects.tradefab">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/startingapplogo"
@@ -9,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPassword"></activity>
-        <activity android:name=".SignupForByer"></activity>
+        <activity android:name=".JustForTesting"></activity>
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".SignupForByer" />
         <activity android:name=".SignupForMerchant" />
         <activity
             android:name=".LoginPage"
