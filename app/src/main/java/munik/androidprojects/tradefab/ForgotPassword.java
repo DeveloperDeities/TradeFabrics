@@ -2,6 +2,7 @@ package munik.androidprojects.tradefab;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,8 +34,25 @@ public class ForgotPassword extends AppCompatActivity {
         phoneno = findViewById(R.id.phone_forgot_password);
         email = findViewById(R.id.email_forgot_password);
         resetpass.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {emailAddress = email.getText().toString().trim();
+                //        check weather fields are empty or not
+                String name=username.getText().toString().trim();
+                String e_mail=email.getText().toString().trim();
+                String phone=phoneno.getText().toString().trim();
+                //        check weather fields are empty or not
+                if((TextUtils.isEmpty(name))||(TextUtils.equals(name,"Name"))) {
+                    username.setError("name is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(phone))||(TextUtils.equals(phone,"Name"))) {
+                    phoneno.setError("name is required");
+                    return;
+                }if((TextUtils.isEmpty(e_mail))||(TextUtils.equals((CharSequence) e_mail,"Name"))) {
+                    email.setError("name is required");
+                    return;
+                }
                 progressBarforgotpass.setVisibility(View.VISIBLE);
                 sendmail();
             }
