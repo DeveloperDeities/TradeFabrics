@@ -38,6 +38,14 @@ public class RoleSelectionPage extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),LoginPage.class));
         finish();
     }
-    public void toBuyerPage(){}
-    public void toMerchantPage(){}
+    public void toBuyerPage(){
+        Intent intent = new Intent(this,BuyerPage.class);
+        startActivity(intent);
+        finish();
+    }
+    public void toMerchantPage(){
+        Intent intent = new Intent(this,SellerPage.class);
+        startActivity(intent);
+        finish();
+    }
 }
