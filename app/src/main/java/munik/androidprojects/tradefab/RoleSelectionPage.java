@@ -13,7 +13,7 @@ public class RoleSelectionPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_just_for_testing);
+        setContentView(R.layout.activity_role_selection_page);
     }
     public void logout(View v){
         FirebaseAuth.getInstance().signOut();
