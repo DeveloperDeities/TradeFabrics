@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class JustForTesting extends AppCompatActivity {
+public class RoleSelectionPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
