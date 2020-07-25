@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "986166365846",
+    "firebase_url": "https://tradefabrics-f63c4.firebaseio.com",
+    "project_id": "tradefabrics-f63c4",
+    "storage_bucket": "tradefabrics-f63c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986166365846:android:54d04586221e5cb9263cb7",
+        "android_client_info": {
+          "package_name": "munik.androidprojects.tradefab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986166365846-36h9cj2nesi143lt7s9g9fssqahtm2mj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "munik.androidprojects.tradefab",
+            "certificate_hash": "6b7d378672a001483736e1510392db6ac969e1b8"
+          }
+        },
+        {
+          "client_id": "986166365846-utka99d7hrseoks6au6u3e3ob6rbk8js.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCz-WPHAvsK5QL1FGfZRlKqf4-s8oa_Y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986166365846-utka99d7hrseoks6au6u3e3ob6rbk8js.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
