@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0E0E0E"
+    android:orientation="vertical"
     tools:context=".RoleSelectionPage">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cardView3"
         android:layout_marginBottom="111dp"
-        android:backgroundTintMode="src_over"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:backgroundTintMode="src_over">
 
         <ImageView
             android:id="@+id/userpageforbuying"
@@ -33,17 +26,10 @@
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="-3dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="1.0">
+        android:textAlignment="center">
 
         <ImageView
             android:id="@+id/merchantimagetosell"
@@ -57,8 +43,6 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_above="@+id/cardView3"
-        android:layout_below="@+id/cardView3"
         android:layout_marginTop="-387dp"
         android:layout_marginBottom="11dp"
         android:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
@@ -70,11 +54,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#EDE9E9"
         android:textDirection="anyRtl"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        android:textSize="40sp" />
 
-</RelativeLayout>
+</LinearLayout>
