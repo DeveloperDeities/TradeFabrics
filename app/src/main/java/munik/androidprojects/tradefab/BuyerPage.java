@@ -11,5 +11,6 @@ public class BuyerPage extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_page);
 
 
+
     }
 }
