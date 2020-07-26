@@ -62,7 +62,7 @@ public class LoginPage extends AppCompatActivity{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), RoleSelectionPage.class));
+                            startActivity(new Intent(getApplicationContext(),RoleSelectionPage.class));
                         }else{
                             Toast.makeText(LoginPage.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                             mProgressBar.setVisibility(View.GONE);
@@ -95,8 +95,8 @@ public class LoginPage extends AppCompatActivity{
         Intent intent=new Intent(this,SignupForByer.class);
         startActivity(intent);
     }
-    public void take_to_forgot_password(){
-        Intent intent=new Intent(this,ForgotPassword.class);
+    public void take_to_forgot_password() {
+        Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
     }
 }
