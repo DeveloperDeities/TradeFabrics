@@ -14,6 +14,7 @@
         android:layout_marginTop="110dp"
         android:layout_marginEnd="93dp"
         android:layout_marginBottom="141dp"
+        android:onClick="logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
