@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,17 +10,17 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="405dp"
-        android:layout_height="297dp"
-        android:layout_marginEnd="411dp"
-        android:layout_marginBottom="731dp"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        android:layout_above="@+id/cardView3"
+        android:layout_marginBottom="111dp"
         android:backgroundTintMode="src_over"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" >
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/userpageforbuying"
@@ -32,8 +33,10 @@
         android:id="@+id/cardView3"
         android:layout_width="409dp"
         android:layout_height="308dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-3dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,15 +49,18 @@
             android:id="@+id/merchantimagetosell"
             android:layout_width="match_parent"
             android:layout_height="299dp"
+            android:layout_marginBottom="20dp"
             app:srcCompat="@drawable/merchant_signup_page" />
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="380dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="197dp"
-        android:layout_marginEnd="156dp"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_above="@+id/cardView3"
+        android:layout_below="@+id/cardView3"
+        android:layout_marginTop="-402dp"
+        android:layout_marginBottom="11dp"
         android:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
         android:drawableTint="@color/colorPrimaryDark"
         android:freezesText="false"
@@ -69,4 +75,5 @@
         app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
