@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
-        android:layout_height="304dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/cardView3"
         android:layout_marginBottom="111dp"
         android:backgroundTintMode="src_over"
@@ -25,7 +25,7 @@
         <ImageView
             android:id="@+id/userpageforbuying"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="332dp"
             app:srcCompat="@drawable/buyer_signup_page" />
     </androidx.cardview.widget.CardView>
 
