@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.631"></LinearLayout>
 
     <ImageView
-        android:id="@+id/merchant"
+        android:id="@+id/merchantSelection"
         android:layout_width="121dp"
         android:layout_height="212dp"
         android:layout_marginBottom="36dp"
@@ -31,7 +31,7 @@
         tools:srcCompat="@drawable/merchant_signup_page" />
 
     <ImageView
-        android:id="@+id/normal"
+        android:id="@+id/userSelection"
         android:layout_width="123dp"
         android:layout_height="205dp"
         android:layout_marginBottom="36dp"
@@ -64,7 +64,7 @@
         android:text="BUYER"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/normal"
+        app:layout_constraintEnd_toEndOf="@+id/userSelection"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
