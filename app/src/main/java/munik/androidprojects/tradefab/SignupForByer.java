@@ -14,12 +14,20 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupForByer extends AppCompatActivity {
     FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
+    String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +41,7 @@ public class SignupForByer extends AppCompatActivity {
         final ProgressBar mProgressBar2=(ProgressBar)findViewById(R.id.progressBar2);
         mProgressBar2.setVisibility(View.INVISIBLE);
         fAuth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         mProgressBar2.setVisibility(View.INVISIBLE);
         if(fAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),LoginPage.class));
@@ -42,11 +51,11 @@ public class SignupForByer extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name=mName.getText().toString().trim();
-                String e_mail=mEmail.getText().toString().trim();
+              final  String name=mName.getText().toString().trim();
+               final String e_mail=mEmail.getText().toString().trim();
                 String password=mPassword.getText().toString().trim();
                 String confirm_password=mConfirm_password.getText().toString().trim();
-                String phone=mPhone.getText().toString().trim();
+              final  String phone=mPhone.getText().toString().trim();
 
                 //check whether the usename and password are empty or not?
                 if((TextUtils.isEmpty(name))||(TextUtils.equals(name,"Name"))) {
@@ -92,6 +101,20 @@ public class SignupForByer extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(SignupForByer.this,"user created",Toast.LENGTH_SHORT).show();
+                            userId=fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference=fstore.collection("users").document(userId);
+                            Map<String,Object> user=new HashMap<>();
+                            user.put("name",name);
+                            user.put("E-mail",e_mail);
+                            user.put("PhoneNo",phone);
+                            user.put("bankAccountNO","");
+                            user.put("IFCS code","");
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.i("info","on success:user  profile is created"+userId);
+                                }
+                            });
                             startActivity(new Intent(getApplicationContext(),LoginPage.class));
                         }else{
                             Toast.makeText(SignupForByer.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
