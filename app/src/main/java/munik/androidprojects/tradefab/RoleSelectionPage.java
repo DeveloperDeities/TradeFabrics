@@ -72,7 +72,7 @@ public class RoleSelectionPage extends AppCompatActivity {
     }
 
 
-    public void logout(View v){
+    public void logout(){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),LoginPage.class));
         finish();
