@@ -108,6 +108,7 @@ public class SignupForMerchant extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(SignupForMerchant.this,"user created",Toast.LENGTH_SHORT).show();
+                            //putting other data like name ,email etc into the fire base collection name users
                             userId=fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference=fstore.collection("users").document(userId);
                             Map<String,Object> user=new HashMap<>();

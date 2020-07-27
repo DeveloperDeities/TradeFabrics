@@ -102,6 +102,7 @@ public class SignupForByer extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(SignupForByer.this,"user created",Toast.LENGTH_SHORT).show();
                             userId=fAuth.getCurrentUser().getUid();
+                            //putting other data like name ,email etc into the fire base collection name users
                             DocumentReference documentReference=fstore.collection("users").document(userId);
                             Map<String,Object> user=new HashMap<>();
                             user.put("name",name);
