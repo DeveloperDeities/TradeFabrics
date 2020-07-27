@@ -126,4 +126,11 @@ public class SignupForByer extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
+        startActivity(new Intent(this,LoginPage.class));
+    }
 }
