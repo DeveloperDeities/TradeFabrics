@@ -99,4 +99,9 @@ public class LoginPage extends AppCompatActivity{
         Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }
