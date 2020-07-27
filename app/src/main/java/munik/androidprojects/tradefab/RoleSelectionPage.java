@@ -71,6 +71,11 @@ public class RoleSelectionPage extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+        return;
+}
 
     public void logout(){
         FirebaseAuth.getInstance().signOut();
