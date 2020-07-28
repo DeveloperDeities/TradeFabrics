@@ -19,13 +19,7 @@ public  class SellerPage extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        logout();
+        startActivity(new Intent(getApplicationContext(),LoginPage.class));
         super.onBackPressed();
     }
-    public void logout(){
-        startActivity(new Intent(getApplicationContext(),LoginPage.class));
-        FirebaseAuth.getInstance().signOut();
-        finish();
-    }
-
 }

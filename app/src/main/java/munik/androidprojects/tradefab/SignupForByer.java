@@ -126,23 +126,11 @@ public class SignupForByer extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-
-        startActivity(new Intent(this,LoginPage.class));
-    }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        logout();
-
-    }
-    public void logout(){
-        FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),LoginPage.class));
-        finish();
     }
+
 }
