@@ -104,4 +104,14 @@ public class LoginPage extends AppCompatActivity{
         super.onPause();
         finish();
     }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        logout();
+        super.onBackPressed();
+    }
 }

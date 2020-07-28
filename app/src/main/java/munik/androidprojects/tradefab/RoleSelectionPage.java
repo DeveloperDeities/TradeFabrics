@@ -73,8 +73,8 @@ public class RoleSelectionPage extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       // super.onBackPressed();
-        return;
+        logout();
+        super.onBackPressed();
 }
 
     public void logout(){
