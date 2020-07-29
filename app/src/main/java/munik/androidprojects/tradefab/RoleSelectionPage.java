@@ -63,12 +63,12 @@ public class RoleSelectionPage extends AppCompatActivity {
                 }
             }
         });
-        buyerPageviewRequired.setOnClickListener(new View.OnClickListener() {
+       /*buyerPageviewRequired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toBuyerPage();
             }
-        });
+        });*/
     }
 
     @Override
@@ -82,11 +82,11 @@ public class RoleSelectionPage extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),LoginPage.class));
         finish();
     }
-    public void toBuyerPage(){
+   /* public void toBuyerPage(){
         Intent intent = new Intent(this,BuyerPage.class);
         startActivity(intent);
         finish();
-    }
+    }*/
     public void toMerchantPage(){
         Intent intent = new Intent(this,SellerPage.class);
         startActivity(intent);
