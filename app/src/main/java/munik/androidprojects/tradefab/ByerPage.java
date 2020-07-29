@@ -1,24 +1,15 @@
 package munik.androidprojects.tradefab;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
@@ -31,24 +22,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import org.w3c.dom.Text;
-
-import javax.annotation.Nullable;
-
-public class SellerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ByerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-    FirebaseAuth fAuth;
-    FirebaseFirestore fstore;
-    String userId;
-     //private SharedPreferences mPrefer;
 
-    TextView name;
-    TextView email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seller_page);
+        setContentView(R.layout.activity_byer_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -70,61 +51,26 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-       // name=(TextView)navigationView.findViewById(R.id.name1);
-        //email=(TextView)findViewById(R.id.emailid);
-       // fAuth=FirebaseAuth.getInstance();
-        //fstore=FirebaseFirestore.getInstance();
-        //initializing the present user id
-       // userId=fAuth.getCurrentUser().getUid();
-       /* DocumentReference documentReference=fstore.collection("users").document(userId);
-        if(documentReference==null)
-            Toast.makeText(SellerPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                name.setText((documentSnapshot.getString("name")));
-               // email.setText((documentSnapshot.getString("E-mail")));
-
-
-                //String a=documentSnapshot.getString("name");
-                //String b=documentSnapshot.getString("E-mail");
-                //mEditor.putString("NAME",a);
-                //mEditor.putString("EMAIL",b);
-                // mEditor.commit();
-            }
-        });*/
-        //mPrefer=getSharedPreferences("Login",MODE_PRIVATE);
-        // TextView name=(TextView)findViewById(R.id.name);
-        // TextView email_id=(TextView)findViewById(R.id.emailid);
-        // name.setText(mPrefer.getString("NAME","abc"));
-         //email_id.setText(mPrefer.getString("EMAIL","ABC"));
-        //initializing the present user id
-
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.seller_page, menu);
+        getMenuInflater().inflate(R.menu.byer_page, menu);
         return true;
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-           // super.onBackPressed();
+          //  super.onBackPressed();
             return;
         }
     }
-   /* @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
