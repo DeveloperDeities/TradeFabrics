@@ -14,7 +14,7 @@
         <activity
             android:name=".SellerPage"
             android:label="@string/title_activity_seller_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RoleSelectionPage"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

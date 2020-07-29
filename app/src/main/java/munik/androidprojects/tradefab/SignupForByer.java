@@ -32,7 +32,7 @@ public class SignupForByer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_for_byer);
-        final EditText mName=(EditText)findViewById(R.id.name);
+        final EditText mName=(EditText)findViewById(R.id.name1);
         final EditText mEmail=(EditText)findViewById(R.id.email);
         final EditText mPassword=(EditText)findViewById(R.id.passowrd);
         final EditText mConfirm_password=(EditText)findViewById(R.id.confirmpassword);

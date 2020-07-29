@@ -3,6 +3,7 @@ package munik.androidprojects.tradefab;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,8 @@ import javax.annotation.Nullable;
 public class RoleSelectionPage extends AppCompatActivity {
     ImageView merchantPageviewRequired;
     ImageView buyerPageviewRequired;
+    //private SharedPreferences mPrefs;
+    //private SharedPreferences.Editor mEditor;
     //declaring the instance variable of FirebaseAuth and FirebaseFirestore type
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
@@ -36,10 +39,14 @@ public class RoleSelectionPage extends AppCompatActivity {
         merchantPageviewRequired=findViewById(R.id.merchantimagetosell);
         buyerPageviewRequired=findViewById(R.id.userpageforbuying);
         //initializing FirebaseAuth and FirebaseFirestore fields
+        //mPrefs=getSharedPreferences("Login",MODE_PRIVATE);
+        //mEditor=mPrefs.edit();
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
         //initializing the present user id
         userId=fAuth.getCurrentUser().getUid();
+
+        //mEditor.commit();
 //retriving data
         DocumentReference documentReference=fstore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -48,6 +55,11 @@ public class RoleSelectionPage extends AppCompatActivity {
                 if((documentSnapshot.getString("bankAccountNO").equals("")&&(documentSnapshot.getString("IFCS code")).equals(""))){
                     Log.i("info","error occured");
                 check=1;}
+                //String a=documentSnapshot.getString("name");
+                //String b=documentSnapshot.getString("E-mail");
+                //mEditor.putString("NAME",a);
+                //mEditor.putString("EMAIL",b);
+               // mEditor.commit();
             }
         });
         merchantPageviewRequired.setOnClickListener(new View.OnClickListener() {

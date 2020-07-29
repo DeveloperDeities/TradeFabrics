@@ -1,17 +1,24 @@
 package munik.androidprojects.tradefab;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
@@ -24,10 +31,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import org.w3c.dom.Text;
+
+import javax.annotation.Nullable;
+
 public class SellerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
+    String userId;
+     //private SharedPreferences mPrefer;
 
+    TextView name;
+    TextView email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +69,38 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+       // name=(TextView)navigationView.findViewById(R.id.name1);
+        //email=(TextView)findViewById(R.id.emailid);
+       // fAuth=FirebaseAuth.getInstance();
+        //fstore=FirebaseFirestore.getInstance();
+        //initializing the present user id
+       // userId=fAuth.getCurrentUser().getUid();
+       /* DocumentReference documentReference=fstore.collection("users").document(userId);
+        if(documentReference==null)
+            Toast.makeText(SellerPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                name.setText((documentSnapshot.getString("name")));
+               // email.setText((documentSnapshot.getString("E-mail")));
+
+
+                //String a=documentSnapshot.getString("name");
+                //String b=documentSnapshot.getString("E-mail");
+                //mEditor.putString("NAME",a);
+                //mEditor.putString("EMAIL",b);
+                // mEditor.commit();
+            }
+        });*/
+        //mPrefer=getSharedPreferences("Login",MODE_PRIVATE);
+        // TextView name=(TextView)findViewById(R.id.name);
+        // TextView email_id=(TextView)findViewById(R.id.emailid);
+        // name.setText(mPrefer.getString("NAME","abc"));
+         //email_id.setText(mPrefer.getString("EMAIL","ABC"));
+        //initializing the present user id
+
+
     }
 
     @Override
