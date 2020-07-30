@@ -25,19 +25,19 @@ public class ShowingDialogForChoice extends DialogFragment {
         merchant_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*LoginPage callingActivity = (LoginPage) getActivity();
-                callingActivity.take_to_Merchant_Login();*/
-                Intent intent=new Intent(getActivity(),SignupForMerchant.class);
-                startActivity(intent);
+                LoginPage callingActivity = (LoginPage) getActivity();
+                callingActivity.take_to_Merchant_Login();
+//                Intent intent=new Intent(getActivity(),SignupForMerchant.class);
+//                startActivity(intent);
             }
         });
         user_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*LoginPage callingActivity = (LoginPage) getActivity();
-                callingActivity.take_to_buyer_Login();*/
-                Intent intent=new Intent(getActivity(),SignupForByer.class);
-                startActivity(intent);
+                LoginPage callingActivity = (LoginPage) getActivity();
+                callingActivity.take_to_buyer_Login();
+//                Intent intent=new Intent(getActivity(),SignupForByer.class);
+//                startActivity(intent);
             }
         });
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
