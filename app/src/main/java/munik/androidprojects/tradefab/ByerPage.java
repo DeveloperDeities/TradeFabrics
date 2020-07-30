@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
@@ -22,10 +29,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import javax.annotation.Nullable;
+
 public class ByerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
+    String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +61,32 @@ public class ByerPage extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //for setting the name and email in the nevigation activity
+        View headerView=navigationView.getHeaderView(0);
+        final TextView name=headerView.findViewById(R.id.name2);
+        final TextView email=headerView.findViewById(R.id.email2);
+        //email=(TextView)findViewById(R.id.emailid);
+        fAuth=FirebaseAuth.getInstance();
+        fstore= FirebaseFirestore.getInstance();
+        //initializing the present user id
+        userId=fAuth.getCurrentUser().getUid();
+        DocumentReference documentReference=fstore.collection("users").document(userId);
+        //if(documentReference==null)
+          //  Toast.makeText(SellerPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                name.setText((documentSnapshot.getString("name")));
+                email.setText((documentSnapshot.getString("E-mail")));
 
+
+                //String a=documentSnapshot.getString("name");
+                //String b=documentSnapshot.getString("E-mail");
+                //mEditor.putString("NAME",a);
+                //mEditor.putString("EMAIL",b);
+                // mEditor.commit();
+            }
+        });
 
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -43,8 +44,7 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
     String userId;
      //private SharedPreferences mPrefer;
 
-    TextView name;
-    TextView email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,21 +69,23 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-       // name=(TextView)navigationView.findViewById(R.id.name1);
+        //for setting the name and email in the nevigation activity
+        View headerView=navigationView.getHeaderView(0);
+       final TextView name=headerView.findViewById(R.id.name1);
+       final TextView email=headerView.findViewById(R.id.emailid);
         //email=(TextView)findViewById(R.id.emailid);
-       // fAuth=FirebaseAuth.getInstance();
-        //fstore=FirebaseFirestore.getInstance();
+        fAuth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         //initializing the present user id
-       // userId=fAuth.getCurrentUser().getUid();
-       /* DocumentReference documentReference=fstore.collection("users").document(userId);
+        userId=fAuth.getCurrentUser().getUid();
+        DocumentReference documentReference=fstore.collection("users").document(userId);
         if(documentReference==null)
             Toast.makeText(SellerPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 name.setText((documentSnapshot.getString("name")));
-               // email.setText((documentSnapshot.getString("E-mail")));
+                email.setText((documentSnapshot.getString("E-mail")));
 
 
                 //String a=documentSnapshot.getString("name");
@@ -92,7 +94,7 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
                 //mEditor.putString("EMAIL",b);
                 // mEditor.commit();
             }
-        });*/
+        });
         //mPrefer=getSharedPreferences("Login",MODE_PRIVATE);
         // TextView name=(TextView)findViewById(R.id.name);
         // TextView email_id=(TextView)findViewById(R.id.emailid);
