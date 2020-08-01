@@ -32,12 +32,12 @@ public class SignupForByer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_for_byer);
-        final EditText mName=(EditText)findViewById(R.id.name1);
-        final EditText mEmail=(EditText)findViewById(R.id.email);
-        final EditText mPassword=(EditText)findViewById(R.id.passowrd);
-        final EditText mConfirm_password=(EditText)findViewById(R.id.confirmpassword);
+        final EditText mName=(EditText)findViewById(R.id.item);
+        final EditText mEmail=(EditText)findViewById(R.id.quantity);
+        final EditText mPassword=(EditText)findViewById(R.id.color);
+        final EditText mConfirm_password=(EditText)findViewById(R.id.rate);
         final EditText mPhone=(EditText)findViewById(R.id.phone);
-        final Button mButton=(Button)findViewById(R.id.register);
+        final Button mButton=(Button)findViewById(R.id.register1);
         final ProgressBar mProgressBar2=(ProgressBar)findViewById(R.id.progressBar2);
         mProgressBar2.setVisibility(View.INVISIBLE);
         fAuth=FirebaseAuth.getInstance();

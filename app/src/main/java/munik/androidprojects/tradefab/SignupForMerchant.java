@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SignupForMerchant extends AppCompatActivity {
@@ -32,14 +34,14 @@ public class SignupForMerchant extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_for_merchant);
-        final EditText mName=(EditText)findViewById(R.id.name1);
-        final EditText mEmail=(EditText)findViewById(R.id.email);
-        final EditText mPassword=(EditText)findViewById(R.id.passowrd);
-        final EditText mConfirm_password=(EditText)findViewById(R.id.confirmpassword);
+        final EditText mName=(EditText)findViewById(R.id.item);
+        final EditText mEmail=(EditText)findViewById(R.id.quantity);
+        final EditText mPassword=(EditText)findViewById(R.id.color);
+        final EditText mConfirm_password=(EditText)findViewById(R.id.rate);
         final EditText mPhone=(EditText)findViewById(R.id.phone);
         final EditText mBank_account=(EditText)findViewById(R.id.bankaccount);
         final EditText mIFCS=(EditText)findViewById(R.id.ifcscode);
-        final Button mButton=(Button)findViewById(R.id.register);
+        final Button mButton=(Button)findViewById(R.id.register1);
         final ProgressBar mProgressBar2=(ProgressBar)findViewById(R.id.progressBar2);
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
@@ -58,6 +60,7 @@ public class SignupForMerchant extends AppCompatActivity {
                 final String phone=mPhone.getText().toString().trim();
                 final String bankAccount=mBank_account.getText().toString().trim();
                 final String ifcs_code=mIFCS.getText().toString().trim();
+                final List<String> listForSelling=new ArrayList<>();
                 //check whether the usename and password are empty or not?
                 if((TextUtils.isEmpty(name))||(TextUtils.equals(name,"Name"))) {
                     mName.setError("name is required");
@@ -117,6 +120,7 @@ public class SignupForMerchant extends AppCompatActivity {
                             user.put("PhoneNo",phone);
                             user.put("bankAccountNO",bankAccount);
                             user.put("IFCS code",ifcs_code);
+                            user.put("list of items to be selled",listForSelling.toString());
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

@@ -11,11 +11,12 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN UP"
+        android:text="Put your Items"
         android:textColor="#D50000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.060000002" />
@@ -28,7 +29,7 @@
         android:drawableStart="@drawable/ic_mood_black_24dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Name"
+        android:hint="Item"
         android:inputType="textMultiLine"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +37,6 @@
         app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -47,7 +47,7 @@
         android:drawableStart="@drawable/ic_email_black_24dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="E-mail"
+        android:hint="Quantity"
         android:inputType="textMultiLine"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272"
+        app:layout_constraintVertical_bias="0.59000003"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -66,7 +66,7 @@
         android:drawableStart="@drawable/ic_lock_black_24dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Password"
+        android:hint="Color"
         android:inputType="textMultiLine"
         android:password="true"
         android:textColor="@android:color/black"
@@ -75,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369"
+        app:layout_constraintVertical_bias="0.68"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -86,7 +86,7 @@
         android:drawableStart="@drawable/ic_lock_black_24dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Conferm-Password"
+        android:hint="Rate"
         android:inputType="textMultiLine"
         android:password="true"
         android:textColor="@android:color/black"
@@ -95,27 +95,9 @@
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464"
+        app:layout_constraintVertical_bias="0.77"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="252dp"
-        android:layout_height="35dp"
-        android:background="@android:color/white"
-        android:drawableStart="@drawable/ic_local_phone_black_24dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Phone"
-        android:inputType="textMultiLine"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557"
-        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/register1"
@@ -125,21 +107,11 @@
         android:text="REGISTER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.89" />
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
