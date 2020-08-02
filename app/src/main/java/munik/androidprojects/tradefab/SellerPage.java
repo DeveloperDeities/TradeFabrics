@@ -28,8 +28,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nullable;
@@ -42,7 +48,11 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
     String userId;
      //private SharedPreferences mPrefer;
     String list;
-    DocumentReference documentReference;
+    private List<Person> noteList;
+   // String tem;
+   // DocumentReference documentReference;
+   private RecyclerView recyclerView;
+    private NoteAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,27 +89,51 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
         DocumentReference documentReference=fstore.collection("users").document(userId);
         if(documentReference==null)
             Toast.makeText(SellerPage.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+        else{
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 name.setText((documentSnapshot.getString("name")));
                 email.setText((documentSnapshot.getString("E-mail")));
                 list=documentSnapshot.getString("list of items to be selled");
+                if(list.length()>2){
+                recyclerView = (RecyclerView)
+                        findViewById(R.id.recyclerView);
+                noteList=new ArrayList<>();
+                String k=list.substring(0,list.length()-1);
+                String h="";
+                for(int i=1;i<k.length();i++){
+                    h=h+k.charAt(i);
+                }
+                String[] parts=h.split("],");
+                for(int i=0;i<parts.length;i++){
+                    String cv="";
+                    for(int j=1;j<parts[i].length();j++){
+                        cv=cv+parts[i].charAt(j);
+                    }
+                    String[] parts1=cv.split(",");
+                    Person person=new Person(parts1[0],parts1[1],parts1[2],parts1[3]);
+                    noteList.add(person);
+                }
+               abc(noteList);
 
                 //String a=documentSnapshot.getString("name");
                 //String b=documentSnapshot.getString("E-mail");
                 //mEditor.putString("NAME",a);
                 //mEditor.putString("EMAIL",b);
                 // mEditor.commit();
-            }
-        });
+            }}
+        });}
+
         //mPrefer=getSharedPreferences("Login",MODE_PRIVATE);
         // TextView name=(TextView)findViewById(R.id.name);
         // TextView email_id=(TextView)findViewById(R.id.emailid);
         // name.setText(mPrefer.getString("NAME","abc"));
          //email_id.setText(mPrefer.getString("EMAIL","ABC"));
         //initializing the present user id
-
+        // tem=return_list();
+        if(list==null)
+        Toast.makeText(SellerPage.this,"error",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -177,5 +211,18 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
                Log.i("info","documents upDated");
            }
        });
+   }
+   public void abc(List<Person> y){
+       mAdapter = new NoteAdapter(this,y);
+       RecyclerView.LayoutManager mLayoutManager =
+               new LinearLayoutManager(getApplicationContext());
+       recyclerView.setLayoutManager(mLayoutManager);
+       recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+// set the adapter
+       recyclerView.setAdapter(mAdapter);
+       recyclerView.addItemDecoration(
+               new DividerItemDecoration(
+                       this, LinearLayoutManager.VERTICAL));
    }
 }
