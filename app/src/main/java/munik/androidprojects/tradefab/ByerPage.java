@@ -2,12 +2,15 @@ package munik.androidprojects.tradefab;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -17,7 +20,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,6 +34,14 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Nullable;
 
@@ -37,6 +51,10 @@ public class ByerPage extends AppCompatActivity implements NavigationView.OnNavi
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
     String userId;
+    String temp="";
+    private List<Person> noteList;
+    private RecyclerView recyclerView;
+    private NoteAdapter1 mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +105,7 @@ public class ByerPage extends AppCompatActivity implements NavigationView.OnNavi
                 // mEditor.commit();
             }
         });
+        abcd();
 
     }
 
@@ -146,5 +165,69 @@ public class ByerPage extends AppCompatActivity implements NavigationView.OnNavi
         return true;
 
     }
+    public void abcd(){
+        fstore.collection("users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                               // Log.i("info", document.getId() + " => " + document.getData());
+                                Map<String, Object> b=document.getData();
+                               // b.get("list of items to be selled");
+                                Object temp1=b.get("list of items to be selled");
+                                String sc=(String)temp1;
+                                if(sc!=null){
+                                    if(sc.length()>2)
+                                    {
+                                        String jl=sc.substring(0,sc.length()-1);
+                                        String h="";
+                                        for(int j=1;j<jl.length();j++){
+                                            h=h+jl.charAt(j);
+                                        }
+                                        temp=temp+h+",";
+                                    }
+                                }
 
+                            }
+                            Log.i("info","list"+temp);
+
+                            recyclerView = (RecyclerView)
+                                    findViewById(R.id.recyclerView1);
+                            noteList=new ArrayList<>();
+                            String[] parts=temp.split("],");
+                            for(int i=0;i<parts.length;i++){
+                                String cv="";
+                                for(int j=1;j<parts[i].length();j++){
+                                    cv=cv+parts[i].charAt(j);
+                                }
+                                String[] parts1=cv.split(",");
+                                Person person=new Person(parts1[0],parts1[1],parts1[2],parts1[3]);
+                                noteList.add(person);
+                            }
+                            if(noteList.isEmpty())
+                                Log.i("info","error error");
+                            abcde(noteList);
+
+                        } else {
+                            Log.i("info", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+    }
+    public void abcde(List<Person> y){
+        mAdapter = new NoteAdapter1(this,y);
+        RecyclerView.LayoutManager mLayoutManager =
+                new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+// set the adapter
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(
+                        this, LinearLayoutManager.VERTICAL));
+    }
 }
