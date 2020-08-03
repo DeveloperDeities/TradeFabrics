@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.view.ActionMode;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -40,7 +42,7 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class SellerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class SellerPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnLongClickListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     FirebaseAuth fAuth;
@@ -49,10 +51,14 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
      //private SharedPreferences mPrefer;
     String list;
     private List<Person> noteList;
+    private List<Person> noteList1;
+
+    boolean isContextualModeUnable=false;
    // String tem;
    // DocumentReference documentReference;
    private RecyclerView recyclerView;
     private NoteAdapter mAdapter;
+    private ActionMode mActionMode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,8 +138,8 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
          //email_id.setText(mPrefer.getString("EMAIL","ABC"));
         //initializing the present user id
         // tem=return_list();
-        if(list==null)
-        Toast.makeText(SellerPage.this,"error",Toast.LENGTH_SHORT).show();
+        noteList1=new ArrayList<>();
+
 
     }
 
@@ -225,4 +231,61 @@ public class SellerPage extends AppCompatActivity implements NavigationView.OnNa
                new DividerItemDecoration(
                        this, LinearLayoutManager.VERTICAL));
    }
+   @Override
+    public boolean onLongClick(View v){
+        if(mActionMode!=null){
+            return false;
+        }
+
+        mActionMode=startSupportActionMode(mActionModecallback);
+
+                return true;
+   }
+   private ActionMode.Callback mActionModecallback=new ActionMode.Callback() {
+       @Override
+       public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+           mode.getMenuInflater().inflate(R.menu.example_menu,menu);
+           mode.setTitle("Choose your option");
+           isContextualModeUnable=true;
+           mAdapter.notifyDataSetChanged();
+           return true;
+       }
+
+       @Override
+       public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+           return false;
+       }
+
+       @Override
+       public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+           switch(item.getItemId()){
+               case R.id.delete_option:
+                   Toast.makeText(SellerPage.this,"Option 1 selected",Toast.LENGTH_SHORT).show();
+                   mAdapter.removeItem(noteList1);
+                   addition(mAdapter.removal());
+                   mode.finish();
+                   return true;
+               default:
+                   return false;
+           }
+
+       }
+
+       @Override
+       public void onDestroyActionMode(ActionMode mode) {
+           mActionMode=null;
+           isContextualModeUnable=false;
+           mAdapter.notifyDataSetChanged();
+       }
+   };
+
+    public void MAkeSelectItem(View v, int adapterPosition) {
+        if(((CheckBox)v).isChecked()){
+            noteList1.add(noteList.get(adapterPosition));
+        }
+        else{
+            noteList1.remove(noteList.get(adapterPosition));
+        }
+    }
+
 }
